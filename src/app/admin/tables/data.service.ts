@@ -46,10 +46,10 @@ export class DataService {
     'Thomas',
     'Elizabeth'
   ];
-
+  users: UserData[] = [];
   constructor() {}
 
-  createNewUser(id: number): UserData {
+  private createNewUser(id: number): UserData {
     const name =
       this.names[this.getRandomArrayIndex(this.names.length)] +
       ' ' +
@@ -64,12 +64,19 @@ export class DataService {
     };
   }
 
-  create100Users(): UserData[] {
+  private create100Users(): UserData[] {
     const users: UserData[] = [];
     for (let i = 1; i <= 100; i++) {
       users.push(this.createNewUser(i));
     }
     return users;
+  }
+
+  getAllUser(){
+    if(this.users.length==0){
+      this.users = this.create100Users();
+    }
+    return this.users;
   }
 
   private getRandomArrayIndex(length: number): number {

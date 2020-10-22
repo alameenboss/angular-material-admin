@@ -1,5 +1,18 @@
+@import 'src/scss/variables';
 .mat-column-progress {
   max-width: 40px;
 }
-
-
+.filter{
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.mat-header-row{
+  background: $primary-color;
+}
+.mat-header-cell {
+  color: $white;
+  font-weight: 600;
+}
+.mat-sort-header-arrow {
+  color: $white !important;
+}

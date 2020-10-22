@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { SettingsComponent } from '../settings/settings.component';
 
 @Component({
   selector: 'app-top-nav',
@@ -9,7 +11,7 @@ import { Router } from '@angular/router';
 export class TopNavComponent implements OnInit {
   @Output() sideNavToggled = new EventEmitter<void>();
 
-  constructor(private readonly router: Router) {}
+  constructor(private readonly router: Router,private dialog: MatDialog,) {}
 
   ngOnInit() {}
 
@@ -20,5 +22,8 @@ export class TopNavComponent implements OnInit {
   onLoggedout() {
     localStorage.removeItem('isLoggedin');
     this.router.navigate(['/login']);
+  }
+  openSettingDialog() {
+    this.dialog.open(SettingsComponent);
   }
 }

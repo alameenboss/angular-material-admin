@@ -20,7 +20,7 @@ export class TablesComponent implements OnInit, AfterViewInit {
   constructor(private readonly dataService: DataService) {}
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource(this.dataService.create100Users());
+    this.dataSource = new MatTableDataSource(this.dataService.getAllUser());
     this.selection = new SelectionModel<UserData>(true, []);
   }
 
